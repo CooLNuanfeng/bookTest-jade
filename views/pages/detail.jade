@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+  .container
+    h1 #{book.bookName}
+    .media
+      .media-left.media-middle
+        img(src="#{book.bookImg}" width="245" height="245")
+      .media-body
+        p <span> 作者： </span> #{book.bookAuthor}
+        p <span> 出版社：</span> #{book.bookPublisher}
+        p <span> 出版年：</span> #{book.bookTime}
+        p <span> 定价： </span> ￥#{book.bookPrice}
+    p.leade 内容简介
+    p.
+      #{book.bookInfo}
+

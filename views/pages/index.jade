@@ -1,0 +1,24 @@
+extends ../layout
+
+block content
+  .container
+    h1 欢迎来到我的书架 
+      small Welcome to My Bookshelf
+    p.lead 这是一个用node + express + mongoose 搭建的简单网站，主要学习如何使用node快速搭建一个简单的网站。 
+  .container
+    if !bookArr.length
+      p.lead 目前还没有书籍，点击<a href="/addBook" class='btn btn-link'>这里</a>添加吧
+    else
+      ul.list-unstyled.clearfix.boxlist
+        each item in bookArr
+          li.col-md-3.col-sm-6
+            .thumbnail
+              a(href='/detail/#{item._id}')
+                img(src='#{item.bookImg}')
+              .caption
+                h3: a(href='/detail/#{item._id}') #{item.bookName}
+                p(class='bookInfo').
+                  #{item.bookInfo}
+                p.clearfix
+                  a.btn.btn-primary.pull-left(role='button'): span.glyphicon.glyphicon-shopping-cart 购买
+                  a.btn.btn-primary.pull-right(href='/detail/#{item._id}' role='button'): span 了解更多

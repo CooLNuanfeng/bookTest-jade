@@ -1,0 +1,39 @@
+extends ../layout
+
+block content
+  .container
+    h1 添加你想展示书籍信息
+    p.lead 请正确填写
+    form.form-horizontal(role="form" action='/postbook' method='post')
+      input(type='hidden' name='bookId' value=book._id)
+      .form-group
+        label.col-sm-2.control-label(for='inputName') 书籍名称
+        .col-sm-10
+          input#inputName.form-control(type='text' placeholder='书籍名称' name='bookName' value=book.bookName)
+      .form-group
+        label.col-sm-2.control-label(for='inputUrl') 图片路径
+        .col-sm-10
+          input#inputUrl.form-control(type='url' placeholder='图片路径' name='bookImg' value=book.bookImg)
+      .form-group
+        label.col-sm-2.control-label(for='authorName') 作者
+        .col-sm-10
+          input#authorName.form-control(type='text' placeholder='作者' name='bookAuthor' value=book.bookAuthor)
+      .form-group
+        label.col-sm-2.control-label(for='publishName') 出版社
+        .col-sm-10
+          input#publishName.form-control(type='text' placeholder='出版社' name='bookPublisher' value=book.bookPublisher)
+      .form-group
+        label.col-sm-2.control-label(for='publishTime') 出版年
+        .col-sm-10
+          input#publishTime.form-control(type='text' placeholder='出版年' name='bookTime' value=book.bookTime)
+      .form-group
+        label.col-sm-2.control-label(for='publishPrice') 定价
+        .col-sm-10
+          input#publishPrice.form-control(type='text' placeholder='定价' name='bookPrice' value=book.bookPrice)
+      .form-group
+        label.col-sm-2.control-label(for='contentTxt') 内容简介
+        .col-sm-10
+          textarea#contentTxt.form-control(rows='3' placeholder='内容简介...' name='bookInfo' value=book.bookInfo)
+      .form-group
+        .col-sm-10.col-sm-offset-2
+          button.btn.btn-primary.btn-default(type='submit' name='submit') 添加

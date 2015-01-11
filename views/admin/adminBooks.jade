@@ -1,0 +1,19 @@
+extends ../layout
+
+block content
+  h1 管理我的书架列表
+  table.table.table-striped.table-hover
+    tr
+      td 书籍名称
+      //- td 录入时间
+      td 操作
+      td 删除
+    each item in bookList
+      tr
+        td #{item.bookName}
+        //- td
+        td 
+          a.btn.btn-link(href='/detail/#{item._id}') 查看
+          a.btn.btn-link(href='/addbook/#{item._id}') 修改
+        td
+          a.btn.btn-danger(href="javascript:;") 删除
